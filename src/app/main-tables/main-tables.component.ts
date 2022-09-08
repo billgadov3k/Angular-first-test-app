@@ -3,16 +3,15 @@ import { Component, OnInit } from '@angular/core';
 export interface PeriodicElement {
   name: string;
   position: number;
-  weight: number;
+  age: number;
   symbol: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Aleksandr', weight: 8.8999, symbol: 'Be'},
+  {position: 1, name: 'Hydrogen', age: 50, symbol: 'H'},
+  {position: 2, name: 'Helium', age: 46, symbol: 'He'},
+  {position: 3, name: 'Lithium', age: 61, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', age: 25, symbol: 'Be'},
 
 ];
 
@@ -23,7 +22,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class MainTablesComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'edit'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }
@@ -31,7 +29,13 @@ export class MainTablesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editPers(element: PeriodicElement) {
-    console.log('edit', element)
+  addPers() {
+    ELEMENT_DATA.push({
+      position: 5,
+      name: "Aleks",
+      age: 33,
+      symbol: 'RU'
+    });
+    console.log(ELEMENT_DATA)
   }
 }
